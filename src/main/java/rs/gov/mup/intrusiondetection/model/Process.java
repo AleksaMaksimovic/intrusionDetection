@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import java.util.List;
@@ -15,7 +16,6 @@ public class Process {
 
     @Id
     private Long id;
-
     private Long processIndex;
     private Long processId;
     private Long parentProcessId;
@@ -33,6 +33,6 @@ public class Process {
     private String companyName;
     private String version;
     private String description;
-    @OneToMany(mappedBy = "process")
+    @OneToMany(mappedBy = "process", fetch = FetchType.EAGER)
     private List<Module> modules;
 }
