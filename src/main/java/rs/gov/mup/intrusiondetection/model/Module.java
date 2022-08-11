@@ -1,5 +1,6 @@
 package rs.gov.mup.intrusiondetection.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import lombok.Data;
@@ -34,5 +35,6 @@ public class Module {
     private String Description;
 
     @ManyToOne()
+    @JsonIgnore
     private Process process;
 }

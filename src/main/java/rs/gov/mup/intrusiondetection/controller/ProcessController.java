@@ -4,7 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import rs.gov.mup.intrusiondetection.dto.ProcessDto;
 import rs.gov.mup.intrusiondetection.model.Process;
 import rs.gov.mup.intrusiondetection.service.ProcessService;
@@ -20,7 +23,7 @@ public class ProcessController {
     }
 
     @RequestMapping(consumes = {MediaType.APPLICATION_XML_VALUE}, method = RequestMethod.POST)
-    public ResponseEntity<Process> insert(@RequestBody ProcessDto processDto) {
+    public ResponseEntity<String> insert(@RequestBody ProcessDto processDto) {
         return ResponseEntity.ok(processService.insert(processDto));
     }
 

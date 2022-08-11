@@ -16,7 +16,7 @@ import java.util.List;
 public class Process implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JacksonXmlProperty(isAttribute = true)
     private Long id;
     @JacksonXmlProperty(isAttribute = true)
