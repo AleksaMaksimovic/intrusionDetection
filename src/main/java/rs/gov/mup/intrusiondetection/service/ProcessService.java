@@ -53,4 +53,11 @@ public class ProcessService {
     public Iterable<Process> getAll() {
         return processRepository.findAll();
     }
+
+    public String insertAll(List<ProcessDto> processDtoList) {
+        for (ProcessDto processDto : processDtoList) {
+            insert(processDto);
+        }
+        return "ok1";
+    }
 }

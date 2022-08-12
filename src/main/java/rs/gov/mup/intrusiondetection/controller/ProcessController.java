@@ -12,6 +12,8 @@ import rs.gov.mup.intrusiondetection.dto.ProcessDto;
 import rs.gov.mup.intrusiondetection.model.Process;
 import rs.gov.mup.intrusiondetection.service.ProcessService;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/process")
 public class ProcessController {
@@ -25,6 +27,10 @@ public class ProcessController {
     @RequestMapping(consumes = {MediaType.APPLICATION_XML_VALUE}, method = RequestMethod.POST)
     public ResponseEntity<String> insert(@RequestBody ProcessDto processDto) {
         return ResponseEntity.ok(processService.insert(processDto));
+    }
+    @RequestMapping(consumes = {MediaType.APPLICATION_XML_VALUE}, method = RequestMethod.POST,path = "/insertAll")
+    public ResponseEntity<String> insertAll(@RequestBody List<ProcessDto> processDtoList) {
+        return ResponseEntity.ok(processService.insertAll(processDtoList));
     }
 
     @GetMapping(produces = MediaType.APPLICATION_XML_VALUE)
